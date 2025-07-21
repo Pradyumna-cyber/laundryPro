@@ -1,1 +1,23 @@
-# laundryPro
+<img width="1125" height="3180" alt="DashboardScreen" src="https://github.com/user-attachments/assets/04506ae3-2a36-4b70-9fdf-999690b6758c" /># laundryPro
+
+
+
+# Screens
+<img width="1125" height="2532" alt="LoginPhone" src="https://github.com/user-attachments/assets/392b558a-64db-47a0-a761-fab13e4ccfcd" />
+
+
+<img width="1125" height="2532" alt="VerifyOTP" src="https://github.com/user-attachments/assets/95d224a4-5aeb-4074-a465-81f6a06bff96" />
+
+
+<img width="1125" height="2532" alt="QRGenerator" src="https://github.com/user-attachments/assets/3c6afda1-8523-4a18-a076-caea29d6daa7" />
+
+
+
+<img width="1125" height="3180" alt="DashboardScreen" src="https://github.com/user-attachments/assets/2632a83c-07fd-4dab-a0c2-4f5ca25800c1" />
+
+
+
+
+
+<img width="1125" height="3423" alt="UserDashboard" src="https://github.com/user-attachments/assets/a2732676-b887-44b0-8803-ac39538697b8" />
+
