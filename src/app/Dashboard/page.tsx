@@ -1,20 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import './page.css';
+import { useRouter } from "next/navigation";
+import "./page.css";
 
 export default function Loginpage() {
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState("");
+  const router = useRouter();
 
   const handleSendOtp = () => {
     console.log("Send OTP to:", phone);
+    router.push(`/otp?phone=${phone}`); // Redirect to OTP page with phone as query param
   };
 
   return (
     <div className="login-page">
       <div className="login-card">
-        <h2 className="heading">Welcome 👋</h2>
+        <h2 className="heading">Login to Continue</h2>
         <p className="subtext">Enter your phone number to get started</p>
+
+        <div className="input-container">
+          <input
+            type="text"
+            maxLength={10}
+            className="phone-input"
+            placeholder="Name"
+            // Optional: add separate state for name if needed
+          />
+        </div>
 
         <div className="input-container">
           <span className="prefix">+91</span>
@@ -28,11 +41,17 @@ export default function Loginpage() {
           />
         </div>
 
+        <label className="cb">
+          <input type="checkbox" /> Login as Laundry Guy
+        </label>
+
         <button className="send-otp-btn" onClick={handleSendOtp}>
           Send OTP
         </button>
 
-        <p className="footer-text">By continuing, you agree to our Terms & Privacy Policy.</p>
+        <p className="footer-text">
+          By continuing, you agree to our Terms & Privacy Policy.
+        </p>
       </div>
     </div>
   );
