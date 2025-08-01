@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import "./page.css";
 
-export default function OtpPage() {
+function OtpPageContent() {
   const searchParams = useSearchParams();
   const phone = searchParams.get("phone");
   const router = useRouter();
@@ -68,5 +68,13 @@ export default function OtpPage() {
         <p className="footer-text">Didn’t receive the code? Resend</p>
       </div>
     </div>
+  );
+}
+
+export default function OtpPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <OtpPageContent />
+    </Suspense>
   );
 }
