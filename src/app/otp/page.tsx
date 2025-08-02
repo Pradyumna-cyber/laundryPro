@@ -7,6 +7,7 @@ import "./page.css";
 function OtpPageContent() {
   const searchParams = useSearchParams();
   const phone = searchParams.get("phone");
+  const isAdmin = searchParams.get("isAdmin") === "true";
   const router = useRouter();
 
   const [otp, setOtp] = useState(["", "", "", ""]);
@@ -14,7 +15,6 @@ function OtpPageContent() {
 
   const handleChange = (index: number, value: string) => {
     if (!/^\d?$/.test(value)) return;
-
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
@@ -33,8 +33,13 @@ function OtpPageContent() {
   const handleVerify = () => {
     const fullOtp = otp.join("");
     console.log("Entered OTP:", fullOtp);
-    // You can add verification logic here
-    router.push("/homepage");
+    
+    // 🔁 Redirect after verifying OTP
+    if (isAdmin) {
+      router.push("/homepage_admin");
+    } else {
+      router.push("/homepage_admin");
+    }
   };
 
   return (

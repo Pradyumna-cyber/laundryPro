@@ -1,0 +1,22 @@
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px;
+  border-top: 1px solid #ccc;
+  background: #f8f8f8;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.bottom-nav a {
+  text-decoration: none;
+  font-weight: bold;
+}

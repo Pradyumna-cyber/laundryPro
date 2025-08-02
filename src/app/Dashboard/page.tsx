@@ -6,11 +6,12 @@ import "./page.css";
 
 export default function Loginpage() {
   const [phone, setPhone] = useState("");
+  const [isLaundryGuy, setIsLaundryGuy] = useState(false);
   const router = useRouter();
 
   const handleSendOtp = () => {
     console.log("Send OTP to:", phone);
-    router.push(`/otp?phone=${phone}`); // Redirect to OTP page with phone as query param
+    router.push(`/otp?phone=${phone}&admin=${isLaundryGuy}`);
   };
 
   return (
@@ -22,10 +23,9 @@ export default function Loginpage() {
         <div className="input-container">
           <input
             type="text"
-            maxLength={10}
+            maxLength={30}
             className="phone-input"
             placeholder="Name"
-            // Optional: add separate state for name if needed
           />
         </div>
 
@@ -42,7 +42,12 @@ export default function Loginpage() {
         </div>
 
         <label className="cb">
-          <input type="checkbox" /> Login as Laundry Guy
+          <input
+            type="checkbox"
+            checked={isLaundryGuy}
+            onChange={(e) => setIsLaundryGuy(e.target.checked)}
+          />
+          Login as Laundry Guy
         </label>
 
         <button className="send-otp-btn" onClick={handleSendOtp}>
