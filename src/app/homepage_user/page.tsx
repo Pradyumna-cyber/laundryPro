@@ -6,61 +6,42 @@ import "react-calendar/dist/Calendar.css";
 import "./page.css";
 import { useRouter } from "next/navigation";
 
-
 interface LaundryItem {
-  title: string;
+  id: number;
   date: string;
-  time: string;
   clothes: number;
   price: number;
   status: "Paid" | "Unpaid";
+  time: string;
+  title: string;
 }
 
 export default function Dashboard() {
-  const router = useRouter(); 
+  const router = useRouter();
   const [date, setDate] = useState(new Date());
-
-  const handleDateChange = (value: Date | Date[] | null) => {
-    if (value instanceof Date) {
-      setDate(value);
-    }
-  };
+  const [laundryData, setLaundryData] = useState<LaundryItem[]>([]);
 
   useEffect(() => {
+    const stored = localStorage.getItem("laundry_entries");
+    if (stored) {
+      const grouped = JSON.parse(stored) as Record<string, LaundryItem[]>;
+      const flatData: LaundryItem[] = Object.values(grouped).flat();
+      setLaundryData(flatData);
+    }
     document.title = "Dashboard";
   }, []);
 
-  const laundryData: LaundryItem[] = [
-    {
-      title: "Delivered Laundry",
-      date: "Nov 21, 2023",
-      time: "Yesterday, 6:00 PM",
-      clothes: 5,
-      price: 15.0,
-      status: "Paid",
-    },
-    {
-      title: "Pickup Scheduled",
-      date: "Nov 20, 2023",
-      time: "Nov 20, 9:00 AM",
-      clothes: 3,
-      price: 9.0,
-      status: "Unpaid",
-    },
-    {
-      title: "Order Completed",
-      date: "Nov 18, 2023",
-      time: "Nov 18, 2:00 PM",
-      clothes: 7,
-      price: 21.0,
-      status: "Paid",
-    },
-  ];
+  const handleDateChange = (value: Date | Date[] | null) => {
+    if (value instanceof Date) {
+      const isoDate = value.toISOString().split("T")[0];
+      router.push(`/homepage_user/addlaundry?date=${isoDate}`);
+    }
+  };
 
   return (
     <div className="dashboard-page">
       <div className="dashboard-container">
-        <h1 className="dashboard-heading">Dashboard</h1>
+        <h1 className="dashboard-heading">Welcome 👋</h1>
 
         <div className="calendar-section">
           <h3 className="calendar-title">
@@ -74,27 +55,32 @@ export default function Dashboard() {
           />
         </div>
 
-        <h2 className="activity-heading">User Past Laundry Activity</h2>
-{laundryData.map((item, index) => (
-  <div
-    className="activity-card"
-    key={index}
-    onClick={() => router.push("/homepage/datedetails")}
-    style={{ cursor: "pointer" }}
-  >
-    <h3>{item.title}</h3>
-    <p className="activity-time">{item.time}</p>
-    <p>Date: {item.date}</p>
-    <p>Clothes: {item.clothes} items</p>
-    <p>Price: ${item.price.toFixed(2)}</p>
-    <span className={`status-badge ${item.status.toLowerCase()}`}>{item.status}</span>
-  </div>
-))}
+        <h2 className="activity-heading">Your Laundry History</h2>
 
-
+        {laundryData.length === 0 ? (
+          <p className="no-records-text">No laundry entries found. Click a date on the calendar to add.</p>
+        ) : (
+          laundryData.map((item) => (
+            <div
+              className="activity-card"
+              key={item.id}
+              onClick={() => router.push(`/homepage_user/datedetails?id=${item.id}`)}
+              style={{ cursor: "pointer" }}
+            >
+              <h3>{item.title}</h3>
+              <p className="activity-time">{item.time}</p>
+              <p>Date: {item.date}</p>
+              <p>Clothes: {item.clothes} items</p>
+              <p>Price: ₹{(item.price || item.clothes * 8).toFixed(2)}</p>
+              <span className={`status-badge ${item.status?.toLowerCase() || "unpaid"}`}>
+                {item.status || "Unpaid"}
+              </span>
+            </div>
+          ))
+        )}
       </div>
 
-      {/* Bottom Nav */}
+      {/* Bottom Navigation */}
       <div className="bottom-nav">
         {["Home", "Users", "QR", "Settings"].map((tab) => (
           <div key={tab} className="nav-item">
