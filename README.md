@@ -15,13 +15,35 @@ A modern laundry management app built with Next.js that supports OTP login, QR c
 
 ---
 
-## 🛠️ Getting Started
+Here's a clean and well-organized table-style layout to present your **Laundry App UI Screens**, categorized by user flow:
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+### 🧼 **Laundry App UI Screens Overview**
+
+| **Screen**              | **Description**                                      | **Preview**                                                                               |
+| ----------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **🔐 Login**            | User inputs phone number to receive OTP and proceed. | ![Login](https://github.com/user-attachments/assets/93712196-d839-4b29-92a8-3194a5bdf317) |
+| **🔑 OTP Verification** | Enter 4-digit OTP received on phone.                 | ![OTP](https://github.com/user-attachments/assets/cc97488d-93c9-4b99-875f-f705c34db4c3)   |
+
+---
+
+### 👤 **User Flow**
+
+| **Screen**                   | **Description**                                           | **Preview**                                                                                         |
+| ---------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| **🏠 User Homepage**         | Welcome screen with calendar and history view.            | ![User Homepage](https://github.com/user-attachments/assets/6d740b41-a6e8-4824-92d6-947aeac995fd)   |
+| **➕ Add Laundry Entry**      | Select number of clothes and submit entry.                | ![Add Laundry](https://github.com/user-attachments/assets/e8478a28-bbdd-41cd-875b-bc1455e18158)     |
+| **📋 Laundry Order Details** | View entry details like clothes count, status, and price. | ![Laundry Details](https://github.com/user-attachments/assets/50519b76-baf3-429c-b150-7fef76fdda52) |
+
+---
+
+### 🛠️ **Admin Panel**
+
+| **Screen**               | **Description**                                | **Preview**                                                                               |
+| ------------------------ | ---------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **🧑‍💼 Admin Homepage** | Admin dashboard for managing all user entries. | ![Admin](https://github.com/user-attachments/assets/0bb756ac-aadc-4c81-908a-929e1e833763) |
+
+---
+
+Let me know if you'd like this turned into a webpage layout, PDF for presentation, or markdown documentation.
