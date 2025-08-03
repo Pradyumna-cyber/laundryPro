@@ -7,7 +7,8 @@ import "./page.css";
 function OtpPageContent() {
   const searchParams = useSearchParams();
   const phone = searchParams.get("phone");
-  const isAdmin = searchParams.get("isAdmin") === "true";
+const isAdmin = searchParams.get("admin") === "true";
+
   const router = useRouter();
 
   const [otp, setOtp] = useState(["", "", "", ""]);
@@ -33,12 +34,10 @@ function OtpPageContent() {
   const handleVerify = () => {
     const fullOtp = otp.join("");
     console.log("Entered OTP:", fullOtp);
-    
-    // 🔁 Redirect after verifying OTP
     if (isAdmin) {
       router.push("/homepage_admin");
     } else {
-      router.push("/homepage_admin");
+      router.push("/homepage_user");
     }
   };
 

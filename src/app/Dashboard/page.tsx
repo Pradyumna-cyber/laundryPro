@@ -12,6 +12,7 @@ export default function Loginpage() {
   const handleSendOtp = () => {
     console.log("Send OTP to:", phone);
     router.push(`/otp?phone=${phone}&admin=${isLaundryGuy}`);
+    
   };
 
   return (
