@@ -75,16 +75,23 @@
   bottom: 0;
   left: 0;
   right: 0;
+  height: 60px;
+  background-color: white;
   display: flex;
   justify-content: space-around;
-  padding: 12px 0;
-  background-color: #fff;
+  align-items: center;
   border-top: 1px solid #ccc;
+  z-index: 1000; 
 }
 
 .nav-item {
   font-size: 14px;
-  color: #666;
+  color: #333;
+  cursor: pointer;
+}
+
+.dashboard-page {
+  padding-bottom: 80px; 
 }
 
 /* Calendar Styles */
@@ -126,7 +133,7 @@
   }
 }
 
-/* Responsive: Tablet */
+
 @media (max-width: 768px) {
   .dashboard-container {
     padding: 0 16px;
