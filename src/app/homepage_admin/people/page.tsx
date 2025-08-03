@@ -1,10 +1,12 @@
-'use client';
-import Link from 'next/link';
+"use client";
+import CenteredContainer from "@/app/components/CenteredContainer";
+import Link from "next/link";
 
-const people = ['Pradyumna', 'Rahul', 'Sneha'];
+const people = ["Pradyumna", "Rahul", "Sneha"];
 
 export default function PeopleList() {
   return (
+    <CenteredContainer>
     <div style={{ padding: 20 }}>
       <h2>👥 People List</h2>
       <ul>
@@ -15,5 +17,6 @@ export default function PeopleList() {
         ))}
       </ul>
     </div>
+    </CenteredContainer>
   );
 }
