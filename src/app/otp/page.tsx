@@ -35,9 +35,9 @@ const isAdmin = searchParams.get("admin") === "true";
     const fullOtp = otp.join("");
     console.log("Entered OTP:", fullOtp);
     if (isAdmin) {
-      router.push("/homepage_admin");
+      router.push("/homepage/laundry-user");
     } else {
-      router.push("/homepage_user");
+      router.push("/homepage/user");
     }
   };
 

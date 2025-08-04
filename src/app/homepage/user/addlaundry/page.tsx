@@ -1,10 +1,10 @@
 "use client";
 
+import { Suspense, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useState } from "react";
 import "../page.css";
 
-export default function AddLaundryPage() {
+function AddLaundryPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const date = searchParams.get("date");
@@ -27,7 +27,9 @@ export default function AddLaundryPage() {
     };
 
     // Retrieve previous entries
-    const prevData = JSON.parse(localStorage.getItem("laundry_entries") || "{}");
+    const prevData = JSON.parse(
+      localStorage.getItem("laundry_entries") || "{}"
+    );
 
     // Append new entry to the specific date
     const updatedData = {
@@ -40,7 +42,7 @@ export default function AddLaundryPage() {
     alert(`Added ${count} clothes for ${date} (₹${amount})`);
     setClothesCount("");
 
-    router.push("/homepage_user"); // Redirect after saving
+    router.push("/homepage/user"); // Redirect after saving
   };
 
   return (
@@ -63,5 +65,13 @@ export default function AddLaundryPage() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function AddLaundryPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AddLaundryPageContent />
+    </Suspense>
   );
 }

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import "./page.css";
 
 export default function Loginpage() {
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("7897897898");
   const [isLaundryGuy, setIsLaundryGuy] = useState(false);
   const router = useRouter();
 

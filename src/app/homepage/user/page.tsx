@@ -34,7 +34,7 @@ export default function Dashboard() {
   const handleDateChange = (value: Date | Date[] | null) => {
     if (value instanceof Date) {
       const isoDate = value.toISOString().split("T")[0];
-      router.push(`/homepage_user/addlaundry?date=${isoDate}`);
+      router.push(`/homepage/user/addlaundry?date=${isoDate}`);
     }
   };
 
@@ -64,7 +64,7 @@ export default function Dashboard() {
             <div
               className="activity-card"
               key={item.id}
-              onClick={() => router.push(`/homepage_user/datedetails?id=${item.id}`)}
+              onClick={() => router.push(`/homepage/user/datedetails?id=${item.id}`)}
               style={{ cursor: "pointer" }}
             >
               <h3>{item.title}</h3>

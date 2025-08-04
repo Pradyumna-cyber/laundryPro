@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 interface LaundryItem {
@@ -13,7 +13,7 @@ interface LaundryItem {
   title: string;
 }
 
-export default function DateDetailsPage() {
+function DateDetailsPagecontent() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const [entry, setEntry] = useState<LaundryItem | null>(null);
@@ -132,4 +132,12 @@ export default function DateDetailsPage() {
       </div>
     </div>
   );
+}
+
+export default function DateDetailsPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DateDetailsPagecontent />
+    </Suspense>
+  )
 }
