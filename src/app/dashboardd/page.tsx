@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import "./page.css";
+import AppInstallPrompt from "../components/AppInstallPrompt";
 
 export default function Loginpage() {
   const [phone, setPhone] = useState("7897897898");
@@ -17,6 +18,7 @@ export default function Loginpage() {
 
   return (
     <div className="login-page">
+      <AppInstallPrompt />
       <div className="login-card">
         <h2 className="heading">Login to Continue</h2>
         <p className="subtext">Enter your phone number to get started</p>

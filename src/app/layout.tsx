@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import  "bootstrap/dist/css/bootstrap.min.css"
 import "./globals.css";
+import HydrationHandler from "./components/HydrationHandler";
 
 export const metadata: Metadata = {
   title: "Laundry Pro",
@@ -9,16 +10,11 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ 
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html 
-    className="hydrated"
-    lang="en">
+    <html lang="en">
       <body>
+        <HydrationHandler />
         {children}
       </body>
     </html>
