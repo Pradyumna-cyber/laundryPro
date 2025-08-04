@@ -17,7 +17,7 @@ export default function Loginpage() {
   };
 
   return (
-    <div className="login-page">
+    <div className="mt-3 login-page">
       <AppInstallPrompt />
       <div className="login-card">
         <h2 className="heading">Login to Continue</h2>

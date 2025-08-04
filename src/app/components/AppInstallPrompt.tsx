@@ -43,15 +43,15 @@ export default function AppInstallPrompt() {
   return (
     <div style={{
       position: 'fixed',
-      bottom: 0,
-      left: 0,
-      right: 0,
-      backgroundColor: '#f0f0f0',
-      padding: '12px',
+      display: 'flex',
+      alignItems: 'center',
+      top: 0,
+      backgroundColor: '#ffffff',
+      padding: '10px',
       textAlign: 'center',
       zIndex: 1000,
-      boxShadow: '0 -2px 5px rgba(0,0,0,0.2)'
-    }}>
+      width: '100vw',
+    }} className=''>
       {showInstall && (
         <>
           <p style={{ margin: 0 }}>Install this app on your device for a better experience.</p>
